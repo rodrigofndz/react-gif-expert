@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-
+import PropTypes from "prop-types";
 import { GifItem } from "./GifItem";
-
 import { useFetchGifs } from "../hooks/useFetchGifs";
 
 
@@ -11,28 +10,6 @@ export const GifGrid = ({category}) => {
 
     //CustomHook
     const {images, isLoading} = useFetchGifs(category);
-
-
-    // const[images, setImages] = useState([]);
-
-    // const getImages = async() => {
-    //     const newImages = await getGifs(category);
-    //     setImages(newImages);
-    // }
-
-    // useEffect(() => {
-    //     getImages();
-    // }, [])
-
-
-
-    //OLD!!!!!!!
-    // useEffect(() => {
-    //     getGifs(category)
-    //         .then(newImages => setImages(newImages));
-    // }, [])
-    
-
     
     return (
         <>
@@ -52,4 +29,8 @@ export const GifGrid = ({category}) => {
             </div>
         </>
     )
+}
+
+GifGrid.propTypes = {
+    category: PropTypes.string.isRequired,
 }
